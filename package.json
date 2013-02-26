@@ -1,0 +1,37 @@
+{
+  "name": "fischub",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-coffee": "~0.4.1",
+    "grunt-contrib-uglify": "~0.1.1",
+    "grunt-contrib-less": "~0.5.0",
+    "grunt-contrib-copy": "~0.4.0",
+    "grunt-contrib-requirejs": "~0.4.0"
+  },
+  "description": "fischub.com ===========",
+  "main": "index.html",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/benja2729/fischub.com.git"
+  },
+  "keywords": [
+    "MVC",
+    "Emberjs",
+    "jQuery",
+    "Handlebars"
+  ],
+  "author": "Benjamin Fischer <bfischervu@gmail.com>",
+  "license": "BSD",
+  "dependencies": {
+    "ember": "~1.0.0-rc.1",
+    "ember-data": "~r10"
+    "handlebars": "~1.0.0-rc.3",
+    "requirejs": "~2.1.4",
+    "jquery": "~1.9.1",
+    "bootstrap": "~2.3.0"
+  }
+}
