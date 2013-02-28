@@ -27,8 +27,11 @@ module.exports = (grunt) ->
 
     ember_templates:
       options:
-        templateName: (path) ->
-          path.replace /src\/templates\//, ''
+        templateName: (filename) ->
+          filename = filename.match(/[^\/]+$/).pop()
+          # The dasherize code from ember
+          filename = filename.replace(/([a-z])([A-Z])/g, '$1_$2').toLowerCase()
+          return filename.replace /[ _]/g, '-'
       dev:
         files: 'js/templates.js': ['src/templates/**/*']
 
@@ -39,7 +42,19 @@ module.exports = (grunt) ->
       dev:
         files: 'css/style.css': 'src/less/**/*.less'
 
+    regarde:
+      less:
+        files: ['src/less/**/*.less']
+        tasks: ['less:dev']
+      coffee:
+        files: ['src/coffee/**/*.coffee']
+        tasks: ['coffee:dev']
+      ember_templates:
+        files: ['src/templates/**/*.{hbs, handlebars}']
+        tasks: ['ember_templates:dev']
+
   # Loading Tasks
+  grunt.loadNpmTasks 'grunt-regarde'
   grunt.loadNpmTasks 'grunt-contrib-copy'
   grunt.loadNpmTasks 'grunt-contrib-less'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
@@ -47,6 +62,6 @@ module.exports = (grunt) ->
 
   # Defining Tasks
   grunt.registerTask 'compile', ['copy:lib', 'coffee:dev', 'ember_templates:dev', 'less:dev']
-  # grunt.registerTask 'dist', ['copy:dist', 'coffee:dist', 'less:dist']
+  #grunt.registerTask 'compile:dist', []
 
   grunt.registerTask 'default', ['dev']

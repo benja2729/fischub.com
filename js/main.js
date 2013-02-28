@@ -19,6 +19,13 @@ require.config({
 });
 
 define(['ember', 'templates'], function(Ember) {
-  var App;
-  return window.App = App = Ember.Application.create();
+  var Site;
+  window.Site = Site = Ember.Application.create({
+    title: 'Fischub',
+    copyright: "© Fischub " + ((new Date()).getFullYear())
+  });
+  return Site.Router.map(function() {
+    this.resource('about');
+    return this.resource('contact');
+  });
 });

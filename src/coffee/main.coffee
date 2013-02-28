@@ -18,4 +18,10 @@ require.config
 
 define ['ember', 'templates'], (Ember) ->
 
-  window.App = App = Ember.Application.create()
+  window.Site = Site = Ember.Application.create
+    title: 'Fischub'
+    copyright: "© Fischub #{(new Date()).getFullYear()}"
+
+  Site.Router.map ->
+    @resource 'about'
+    @resource 'contact'

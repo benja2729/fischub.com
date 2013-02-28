@@ -1,3 +1,9 @@
 [submodule "components/bootstrap"]
 	path = components/bootstrap
 	url = https://github.com/twitter/bootstrap.git
+[submodule "components/ember-bootstrap"]
+	path = components/ember-bootstrap
+	url = https://github.com/emberjs-addons/ember-bootstrap.git
+[submodule "components/emberjs"]
+	path = components/emberjs
+	url = https://github.com/emberjs/ember.js.git
