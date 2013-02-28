@@ -7,3 +7,6 @@
 [submodule "components/emberjs"]
 	path = components/emberjs
 	url = https://github.com/emberjs/ember.js.git
+[submodule "components/ember-data"]
+	path = components/ember-data
+	url = https://github.com/emberjs/data.git
