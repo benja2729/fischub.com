@@ -33,5 +33,6 @@
     "requirejs": "~2.1.4",
     "jquery": "~1.9.1",
     "bootstrap": "~2.3.0"
+    "ember-bootstrap": "~0.0.1"
   }
 }
