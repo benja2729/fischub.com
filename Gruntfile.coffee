@@ -5,14 +5,12 @@ module.exports = (grunt) ->
     #pkg: grunt.file.readJSON 'package.json'
 
     copy:
-      dev:
+      lib:
         files: [
-          src: ['src/*'], dest: 'dev/', filter: 'isFile', flatten: true, expand: true
-        ,
           expand: true
           cwd: 'components/'
           src: ['lib/**/*.js', 'bootstrap/js/*.js']
-          dest: 'dev/js/lib/'
+          dest: 'js/lib/'
           flatten: true
           filter: 'isFile'
         ]
@@ -24,19 +22,31 @@ module.exports = (grunt) ->
         expand: true
         cwd: 'src/coffee'
         src: ['**/*.coffee']
-        dest: 'dev/js/'
+        dest: 'js/'
         ext: '.js'
 
-    #less:
-    #  dev:
+    ember_templates:
+      options:
+        templateName: (path) ->
+          path.replace /src\/templates\//, ''
+      dev:
+        files: 'js/templates.js': ['src/templates/**/*']
+
+    less:
+      options:
+        paths: ['components/bootstrap/less', 'src/less']
+        strictImports: true
+      dev:
+        files: 'css/style.css': 'src/less/**/*.less'
 
   # Loading Tasks
   grunt.loadNpmTasks 'grunt-contrib-copy'
   grunt.loadNpmTasks 'grunt-contrib-less'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
+  grunt.loadNpmTasks 'grunt-ember-templates'
 
   # Defining Tasks
-  grunt.registerTask 'dev', ['copy:dev', 'coffee:dev', 'less:dev']
+  grunt.registerTask 'compile', ['copy:lib', 'coffee:dev', 'ember_templates:dev', 'less:dev']
   # grunt.registerTask 'dist', ['copy:dist', 'coffee:dist', 'less:dist']
 
   grunt.registerTask 'default', ['dev']
