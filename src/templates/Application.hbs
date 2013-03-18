@@ -10,15 +10,10 @@
       {{#linkTo "index" class="brand"}}{{Site.title}}{{/linkTo}}
       <div class="nav-collapse collapse">
         <ul class="nav">
-          <li>
-            {{#linkTo "index"}}Home{{/linkTo}}
-          </li>
-          <li>
-            {{#linkTo "about"}}About{{/linkTo}}
-          </li>
-          <li>
-            {{#linkTo "contact"}}Contact{{/linkTo}}
-          </li>
+          {{#linkTo "index" tagName="li"}}<a {{bindAttr href="view.href"}}>Home</a>{{/linkTo}}
+          {{#linkTo "about" tagName="li"}}<a {{bindAttr href="view.href"}}>About</a>{{/linkTo}}
+          <li><a href="https://github.com/benja2729">GitHub</a></li>
+          {{#view Site.ModalTrigger tagName="li"}}<a>Contact</a>{{/view}}
         </ul>
       </div><!--/.nav-collapse -->
 
@@ -26,7 +21,7 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container page-wrap">
 
   {{outlet}}
 

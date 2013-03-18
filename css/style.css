@@ -7890,3 +7890,11 @@ a.badge:focus {
     overflow: visible !important;
   }
 }
+@media (min-width: 980px) {
+  .page-wrap {
+    margin-top: 60px;
+  }
+}
+.nav > li > a {
+  cursor: pointer;
+}
