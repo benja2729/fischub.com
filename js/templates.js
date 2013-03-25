@@ -123,7 +123,10 @@ function program1(depth0,data) {
   return buffer;
   }
 
-  data.buffer.push("<header class=\"modal-header\">\n  <a href=\"#\" class=\"close\" rel=\"close\">×</a>\n  ");
+  data.buffer.push("<header class=\"modal-header\">\n  <a href=\"#\" ");
+  hashTypes = {};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "close", {hash:{},contexts:[depth0],types:["STRING"],hashTypes:hashTypes,data:data})));
+  data.buffer.push(" class=\"close\" rel=\"close\">×</a>\n  ");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "view.header", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
   data.buffer.push("\n</header>\n<section class=\"modal-body\">");
